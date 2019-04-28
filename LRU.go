@@ -9,18 +9,17 @@ import (
 
 type LRU struct {
 	Len  int
-	Map  map[int]*list.Element //哈希表
-	link *list.List            //链表
+	Map  map[int]*list.Element //哈希
+	link *list.List            //双向队列，自带的
 }
 
 type Elem struct {
-	//键值对
 	key   int
 	value interface{}
 }
 
 func NewLRU(Len int) *LRU {
-	//示例化一个LRU缓存
+	//实例化
 	return &LRU{
 		Len:  Len,
 		Map:  map[int]*list.Element{},
